@@ -117,7 +117,7 @@
         </div>
         <br>
 
-        <div class="container bg-info pt-3 pb-4 px-5">
+        <form class="container bg-info pt-3 pb-4 px-5" id="form" onsubmit="submitForm(event)">
 
             <div class="row text-center">
                 <div class="col ">
@@ -129,12 +129,12 @@
                 <div class="col-12 col-md-6">
                     <!-- <h6>First name</h6> -->
                     <label for="FirstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    <input type="text" class="form-control" placeholder="First name" id="FirstName">
                 </div>
                 <div class="col-12 col-md-6">
                     <!-- <h6>Last name</h6> -->
                     <label for="LastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    <input type="text" class="form-control" placeholder="Last name" id="LastName">
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="Hours" class="form-label">Hours Requested</label>
-                    <input type="number" class="form-control" placeholder="h" aria-label="Hours Requested">
+                    <input type="number" class="form-control" placeholder="h" id="Hoursequested">
                 </div>
             </div>
             <br>
@@ -153,17 +153,17 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <label for="inputType" class="form-label">Type of work</label>
-                    <select id="inputType" class="form-select">
-                        <option selected>Choice</option>
-                        <option>Back-end development</option>
-                        <option>Front-end development</option>
-                        <option>Project analisis</option>
+                    <select id="inputType" class="form-select" itemid="option">
+                        <option value="0" selected >Choice</option>
+                        <option value="1" >Back-end development</option>
+                        <option value="2" >Front-end development</option>
+                        <option value="3" >Project analisis</option>
 
                     </select>
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="Discount" class="form-label">Discount code</label>
-                    <input type="text" class="form-control" placeholder="CCCCCC" id="code">
+                    <input type="text" class="form-control" placeholder="CCCCCC" id="discount">
                 </div>
             </div>
             <br>
@@ -180,13 +180,13 @@
             </div>
             <br>
             <div class="d-grid gap-2 col-1 mx-auto">
-                <button class="btn btn-warning" type="button">Send</button>
+                <button class="btn btn-warning" type="button" onclick="submitForm(event)">Send</button>
             </div>
 
             <div class="col ">
                 <h3>Il prezzo finale è di: 00.00</h3>
             </div>
-        </div>
+        </form>
 
     </main>
 

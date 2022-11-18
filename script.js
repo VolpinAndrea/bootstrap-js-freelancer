@@ -12,3 +12,8 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 CONSIDERAZIONI FINALI e BONUS:
 Mentre come bonus javascript dovete far diventare il codice sconto inserito di colore rosso, qualora quello inserito non sia valido.
 Inoltre se il codice fornito è valido, eliminare quel codice dall’elenco dei codici sconto disponibili, il codice sconto non sarà più usabile.*/
+
+function submitForm(event){
+    event.preventDefault();
+    console.log("funziona");
+}
