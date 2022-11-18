@@ -143,27 +143,39 @@
                     <label for="inputEmail" class="form-label">Email address</label>
                     <input type="email" class="form-control" placeholder="name@mail.com" id="inputEmail">
                 </div>
+<!-- -----------------------------------------------------ORE -->
                 <div class="col-12 col-md-6">
+
                     <label for="Hours" class="form-label">Hours Requested</label>
-                    <input type="number" class="form-control" placeholder="h" id="Hoursequested">
+                    <input type="number" class="form-control" placeholder="0" id="ore">
+
+                
                 </div>
             </div>
             <br>
-
+<!-- -----------------------------------------------------SELECT -->
             <div class="row">
                 <div class="col-12 col-md-6">
+
                     <label for="inputType" class="form-label">Type of work</label>
-                    <select id="inputType" class="form-select" itemid="option">
+
+                    <select id="inputType" class="form-select">
+
                         <option value="0" selected >Choice</option>
                         <option value="1" >Back-end development</option>
                         <option value="2" >Front-end development</option>
                         <option value="3" >Project analisis</option>
 
                     </select>
+
                 </div>
+<!-- -----------------------------------------------------SCONTO -->
+
                 <div class="col-12 col-md-6">
+
                     <label for="Discount" class="form-label">Discount code</label>
                     <input type="text" class="form-control" placeholder="CCCCCC" id="discount">
+
                 </div>
             </div>
             <br>
@@ -178,13 +190,12 @@
                     </div>
                 </div>
             </div>
-            <br>
             <div class="d-grid gap-2 col-1 mx-auto">
-                <button class="btn btn-warning" type="button" onclick="submitForm(event)">Send</button>
+                <button class="btn btn-warning my-4" type="button" onclick="submitForm(event)">Send</button>
             </div>
 
             <div class="col ">
-                <h3>Il prezzo finale è di: 00.00</h3>
+                <h3>Il prezzo finale è di: 0.00 &euro;</h3>
             </div>
         </form>
 

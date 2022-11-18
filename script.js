@@ -13,7 +13,64 @@ CONSIDERAZIONI FINALI e BONUS:
 Mentre come bonus javascript dovete far diventare il codice sconto inserito di colore rosso, qualora quello inserito non sia valido.
 Inoltre se il codice fornito è valido, eliminare quel codice dall’elenco dei codici sconto disponibili, il codice sconto non sarà più usabile.*/
 
-function submitForm(event){
-    event.preventDefault();
-    console.log("funziona");
+let prezzo = 0;
+let arrSconti = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"]
+
+function submitForm(event) {
+    event.preventDefault(); 
+
+    let numOre = document.getElementById("ore").value;
+    let scelta = parseInt(document.getElementById("inputType").value);
+
+    console.log("ore: " + numOre + " scelta n: " + scelta);
+
+    switch (scelta) {
+        case 0:
+            console.log("Devi scegiere un tipo di lavoro")
+            break;
+        case 1:
+            console.log("Back-end development")
+            prezzo = numOre*20.50;
+            break;
+        case 2:
+            console.log("Front-end development")
+            prezzo = numOre*15.30;
+            break; 
+        case 3:
+            console.log("Project analisis")
+            prezzo = numOre*33.60;
+            break;
+        // default:
+        //     console.log("Qualscosa è andato storto")
+        //     break;
+    }
+    console.log("Prezzo: " + prezzo);
+
+    let sconto = document.getElementById("discount").value;
+
+    console.log("Codice sconto: " + sconto);
+
+    if(cercaInArray(arrSconti,sconto)){
+        console.log("Applico lo sconto di 25%");
+        prezzo -= (prezzo*25)/100;
+    }else{
+        console.log("NON applico lo sconto di 25%");
+    }
+    console.log("Prezzo finale: " + prezzo);
+
+}
+
+
+
+//-----------------------------------FUNZIONI
+function cercaInArray(array,parola){
+    for (let i = 0; i < array.length; i++) {    
+        if(arrSconti[i]===parola){
+            console.log("TROVATO-->sconto array: " + array[i] + " sconto inserito: " + parola);
+            return true;
+        }   
+    }
+    console.log("sconto NON trovato")
+    return false;
+
 }
