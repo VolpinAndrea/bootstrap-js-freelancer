@@ -15,6 +15,8 @@ Inoltre se il codice fornito è valido, eliminare quel codice dall’elenco dei 
 
 let prezzo = 0;
 let arrSconti = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"]
+let stampaPrezzo = document.getElementById("stampaPrezzo");
+
 
 function submitForm(event) {
     event.preventDefault(); 
@@ -53,8 +55,15 @@ function submitForm(event) {
     if(cercaInArray(arrSconti,sconto)){
         console.log("Applico lo sconto di 25%");
         prezzo -= (prezzo*25)/100;
+        stampaPrezzo.innerHTML = prezzoFianle(sconto);
+        stampaPrezzo.innerHTML += "Sconto del 25 % applicato"
+        eliminaElemento(arrSconti,sconto);
     }else{
         console.log("NON applico lo sconto di 25%");
+        stampaPrezzo.innerHTML = prezzoFianle(sconto);
+        // rendiRosso(discount);
+        let aggiungiClasse = document.getElementById("discount").classList.add("text-danger");
+        stampaPrezzo.innerHTML += "Il codice inserito non è valido"
     }
     console.log("Prezzo finale: " + prezzo);
 
@@ -63,9 +72,10 @@ function submitForm(event) {
 
 
 //-----------------------------------FUNZIONI
+// Abbastanza inutili ma volevo provare ad inserirne quando ripetevo del testo o svolgevo azioni facilmente ripetibili
 function cercaInArray(array,parola){
     for (let i = 0; i < array.length; i++) {    
-        if(arrSconti[i]===parola){
+        if(array[i]===parola){
             console.log("TROVATO-->sconto array: " + array[i] + " sconto inserito: " + parola);
             return true;
         }   
@@ -74,3 +84,23 @@ function cercaInArray(array,parola){
     return false;
 
 }
+
+function prezzoFianle(num){
+    return '<h3 id="stampaPrezzo">Il prezzo finale è di: '+prezzo.toFixed(2)+' &euro;</h3>';
+}
+function eliminaElemento(array, parola){
+    for (let i = 0; i < array.length; i++) {    
+        if(array[i]===parola){
+            console.log("ho cancellato il codice sconto " + parola);
+            array.splice(i, 1);
+        }   
+    }
+    console.log("Qualcosa è andato storto")
+
+}
+
+// ci ho provato in tutti i modi ma mi dà sempre "Cannot read properties of null (reading 'classList')"
+/*function rendiRosso(id){
+    let aggiungiClasse = document.getElementById("\""+id+"\"").classList.add("text-danger");
+
+}*/
